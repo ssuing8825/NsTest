@@ -12,7 +12,7 @@ namespace CustomerAccountSystem
    public  class UpdatePolicySaga: Saga<UpdatePolicySagaData>,
         IAmStartedByMessages<CustomerAndPolicyUpdate>,
         IHandleMessages<BillingResponseMessage>,
-        IHandleMessages<PolicyChangeRequestMessage>
+        IHandleMessages<PolicyChangeResponseMessage>
     {
        public override void ConfigureHowToFindSaga()
        {
@@ -47,11 +47,23 @@ namespace CustomerAccountSystem
        public void Handle(BillingResponseMessage message)
        {
            Console.WriteLine("Received Billing Response : " + message);
+
+           //Raise the policy CHange request
+           //Store Saga Data 
+           this.Data.TrackingNumber = message.TrackingNumber;
+
+           //Tell the Policy System to do somethign
+
+           var policyChangeMessage = new Model.Messages.PolicyChangeRequestMessage { TrackingNumber = message.TrackingNumber };
+
+           Bus.Send("PolicySystem", policyChangeMessage);
+
+           Console.WriteLine("Policy Change Message Sent" + message);
        }
 
-       public void Handle(PolicyChangeRequestMessage message)
+       public void Handle(PolicyChangeResponseMessage message)
        {
-           Console.WriteLine("Received message: " + message);
+           Console.WriteLine("Received Response From Policy: " + message);
        }
     }
 }

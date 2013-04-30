@@ -38,6 +38,9 @@
     <Reference Include="NServiceBus.Core">
       <HintPath>..\packages\NServiceBus.4.0.0-unstable2982\lib\net40\NServiceBus.Core.dll</HintPath>
     </Reference>
+    <Reference Include="NServiceBus.Host">
+      <HintPath>..\packages\NServiceBus.Host.4.0.0-unstable2982\lib\net40\NServiceBus.Host.exe</HintPath>
+    </Reference>
     <Reference Include="NServiceBus.Transports.RabbitMQ">
       <HintPath>..\packages\NServiceBus.RabbitMQ.4.0.0-unstable2982\lib\net40\NServiceBus.Transports.RabbitMQ.dll</HintPath>
     </Reference>
@@ -53,12 +56,22 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="EndpointConfig.cs" />
+    <Compile Include="PolicyChangeMessageHandler.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="App.config" />
+    <None Include="App.config">
+      <SubType>Designer</SubType>
+    </None>
     <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Model\Model.csproj">
+      <Project>{8e7c2437-c5fe-4c68-9500-985d0e3bc7a4}</Project>
+      <Name>Model</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
@@ -68,4 +81,8 @@
   <Target Name="AfterBuild">
   </Target>
   -->
+  <PropertyGroup>
+    <StartAction>Program</StartAction>
+    <StartProgram>$(ProjectDir)$(OutputPath)NServiceBus.Host.exe</StartProgram>
+  </PropertyGroup>
 </Project>
