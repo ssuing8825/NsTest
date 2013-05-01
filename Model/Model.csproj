@@ -54,6 +54,7 @@
     <Compile Include="Messages\ICustomerAndPolicyUpdate.cs" />
     <Compile Include="Messages\PolicyChangeRequestMessage.cs" />
     <Compile Include="Model\Customer.cs" />
+    <Compile Include="Model\PolicyChangeModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
