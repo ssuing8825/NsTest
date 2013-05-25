@@ -13,12 +13,12 @@ namespace Sender
     {
         static void Main(string[] args)
         {
-            var message = new AddCustomerMessage { Id = 1, Name = "Steve" };
+            var message = new AddCustomerMessage { Name = "Steve" };
 
             var bus = CreateBusCore();
-
-            bus.Send("Receiver", message);
-            
+            //Fully Azync
+            bus.Send("Receiver", message).Register(c => Console.WriteLine(((AddCustomerMessageResponse)c.Messages[0]).Id));
+           
             Console.WriteLine("Message Sent");
 
               

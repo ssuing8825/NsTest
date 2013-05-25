@@ -14,6 +14,11 @@ namespace Receiver
         public void Handle(AddCustomerMessage message)
         {
             Console.WriteLine("Message Recieved");
+
+            this.Bus().Reply(new AddCustomerMessageResponse {Id = 99, Name = message.Name});
+
+            Console.WriteLine("SendingResponse");
+
         }
     }
 }
