@@ -15,13 +15,14 @@ namespace Billing
              Configure.With()
                      .DefineEndpointName("CustomerAccountMegaService")
                      .DefaultBuilder()
-                     .XmlSerializer()
                      .UseTransport<NServiceBus.RabbitMQ>()
                      .InMemorySubscriptionStorage()
                      .UseInMemoryTimeoutPersister()
                      .UnicastBus()
                      .CreateBus()
                      .Start(() => Configure.Instance.ForInstallationOn<NServiceBus.Installation.Environments.Windows>().Install());
+
+            Configure.Serialization.Xml();
 
             Console.Read();
 
