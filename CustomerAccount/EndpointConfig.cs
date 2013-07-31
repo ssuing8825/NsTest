@@ -3,7 +3,7 @@ using NHibernate.Cfg;
 
 namespace CustomerAccountSystem
 {
-    public class EndpointConfig : IConfigureThisEndpoint, AsA_Publisher, UsingTransport<NServiceBus.RabbitMQ>, IWantCustomInitialization
+    public class EndpointConfig : IConfigureThisEndpoint, AsA_Server, IWantCustomInitialization
     {
         public void Init()
         {
@@ -19,6 +19,7 @@ namespace CustomerAccountSystem
                      .UseNHibernateSagaPersister()
                      .UseInMemoryGatewayPersister()
                      .UseInMemoryTimeoutPersister()
+                     .UseTransport<NServiceBus.RabbitMQ>()
                      
                      ;
             Configure.Transactions.Disable();
