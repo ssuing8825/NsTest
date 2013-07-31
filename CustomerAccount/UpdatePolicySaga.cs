@@ -16,6 +16,7 @@ namespace CustomerAccountSystem
     {
        public override void ConfigureHowToFindSaga()
        {
+           
            ConfigureMapping<CustomerAndPolicyUpdate>(s => s.TrackingNumber).ToSaga(m => m.TrackingNumber);
            ConfigureMapping<BillingRequestMessage>(s => s.TrackingNumber).ToSaga(m => m.TrackingNumber);
            ConfigureMapping<PolicyChangeRequestMessage>(s => s.TrackingNumber).ToSaga(m => m.TrackingNumber);
