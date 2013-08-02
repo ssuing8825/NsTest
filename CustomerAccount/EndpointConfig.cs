@@ -7,26 +7,14 @@ namespace CustomerAccountSystem
     {
         public void Init()
         {
-            //Configure.With()
-            //      .DefaultBuilder()
-            //       .UseNHibernateSagaPersister()
-            //       .UseNHibernateSubscriptionPersister()
-            //       .UseNHibernateTimeoutPersister()
-            //       .UseNHibernateGatewayPersister();
-
             Configure.With()
                      .DefaultBuilder()
                      .UseNHibernateSagaPersister()
                      .UseInMemoryGatewayPersister()
                      .UseInMemoryTimeoutPersister()
-                     .UseTransport<NServiceBus.RabbitMQ>()
-                     
-                     ;
+                     .UseTransport<NServiceBus.RabbitMQ>();
+
             Configure.Transactions.Disable();
-            
-
         }
-        
     }
-
 }
