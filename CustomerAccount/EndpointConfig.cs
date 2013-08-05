@@ -9,9 +9,7 @@ namespace CustomerAccountSystem
         {
             Configure.With()
                      .DefaultBuilder()
-                     .UseNHibernateSagaPersister()
-                     .UseInMemoryGatewayPersister()
-                     .UseInMemoryTimeoutPersister()
+                     .RavenPersistence()
                      .UseTransport<NServiceBus.RabbitMQ>();
 
             Configure.Transactions.Disable();
