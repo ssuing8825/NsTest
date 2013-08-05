@@ -1,5 +1,5 @@
 using NServiceBus;
-using NHibernate.Cfg;
+
 
 namespace CustomerAccountSystem
 {
@@ -9,9 +9,10 @@ namespace CustomerAccountSystem
         {
             Configure.With()
                      .DefaultBuilder()
-                     .RavenPersistence()
-                     .UseTransport<NServiceBus.RabbitMQ>();
-
+                     .UseTransport<NServiceBus.RabbitMQ>()
+                     .MongoPersistence()
+                     .MongoSagaPersister();
+            
             Configure.Transactions.Disable();
         }
     }

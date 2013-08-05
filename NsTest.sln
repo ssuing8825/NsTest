@@ -13,6 +13,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Billing", "Billing\Billing.
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ServiceConsumer", "ServiceConsumer\ServiceConsumer.csproj", "{0EC6E50A-47F5-443D-8FE8-EA6F66731C0D}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NServiceBus.SagaPersisters.Mongo", "NServiceBus.SagaPersisters.Mongo\NServiceBus.SagaPersisters.Mongo.csproj", "{D15F34AC-3366-4216-B40B-CCD09016DBF1}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NServiceBus.Persistence.Mongo", "NServiceBus.Persistence.Mongo\NServiceBus.Persistence.Mongo.csproj", "{F5CC5BEE-91AF-45AD-960E-46F14F253267}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -39,6 +43,14 @@ Global
 		{0EC6E50A-47F5-443D-8FE8-EA6F66731C0D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{0EC6E50A-47F5-443D-8FE8-EA6F66731C0D}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{0EC6E50A-47F5-443D-8FE8-EA6F66731C0D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D15F34AC-3366-4216-B40B-CCD09016DBF1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D15F34AC-3366-4216-B40B-CCD09016DBF1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D15F34AC-3366-4216-B40B-CCD09016DBF1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D15F34AC-3366-4216-B40B-CCD09016DBF1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F5CC5BEE-91AF-45AD-960E-46F14F253267}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F5CC5BEE-91AF-45AD-960E-46F14F253267}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F5CC5BEE-91AF-45AD-960E-46F14F253267}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F5CC5BEE-91AF-45AD-960E-46F14F253267}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
