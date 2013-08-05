@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Security.Cryptography;
 using System.Text;
 using MongoDB.Bson;
+using MongoDB.Bson.Serialization;
 using MongoDB.Bson.Serialization.Attributes;
 using MongoDB.Driver;
 using NServiceBus.Persistence.Mongo;
@@ -28,8 +29,10 @@ namespace NServiceBus.SagaPersisters.Mongo
         public void Save(IContainSagaData saga)
         {
             var uniqueValue = StoreUniqueProperty(saga);
-            _sagas.Save(saga);
+      
 
+            _sagas.Save(saga);
+           
             if(uniqueValue.HasValue)
                 SetUniqueValueMetadata(saga, uniqueValue.Value);
         }

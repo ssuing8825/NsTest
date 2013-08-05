@@ -34,6 +34,10 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="MongoDB.Bson, Version=1.8.1.20, Culture=neutral, PublicKeyToken=f686731cfb9cc103, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\NServiceBus.SagaPersisters.Mongo\bin\Debug\MongoDB.Bson.dll</HintPath>
+    </Reference>
     <Reference Include="NServiceBus">
       <HintPath>..\packages\NServiceBus.Interfaces.4.0.1\lib\net40\NServiceBus.dll</HintPath>
     </Reference>
