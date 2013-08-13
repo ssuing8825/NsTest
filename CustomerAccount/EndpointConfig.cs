@@ -34,8 +34,6 @@ namespace CustomerAccountSystem
                 cm.MapProperty(p => p.ProcessedEventIds);
                 cm.MapProperty(p => p.TrackingNumber);
                 cm.MapProperty(p => p.Originator);
-
-
             });
             ///  [BsonKnownTypes(typeof(IndividualCustomer), typeof(BusinessCustomer))]
             //BsonClassMap.RegisterClassMap<Customer>();
