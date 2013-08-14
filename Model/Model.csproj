@@ -48,6 +48,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Events\ICustomerAddedEvent.cs" />
+    <Compile Include="Events\All_Events.cs" />
     <Compile Include="Messages\AddCustomerMessage.cs" />
     <Compile Include="Messages\BillingRequestMessage.cs" />
     <Compile Include="Messages\BillingResponseMessage.cs" />
@@ -61,6 +62,8 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="ClassDiagram1.cd" />
+    <None Include="ClassDiagram2.cd" />
     <None Include="packages.config" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

@@ -1,18 +1,15 @@
 ﻿using Model.Events;
 using NServiceBus;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+
 
 namespace Subscriber1
 {
-    class CustomerAddedEventHandler : IHandleMessages<ICustomerAddedEvent>
+    class CustomerAddedEventHandler : IHandleMessages<IAddressBillingMailingEventSet>
     {
-        public void Handle(ICustomerAddedEvent message)
+        public void Handle(IAddressBillingMailingEventSet message)
         {
-            Console.WriteLine("Handling Customer message {0}", message.Customer.name);
+            Console.WriteLine("Handling Customer message {0}", message.CallingSystem);
         }
     }
 }

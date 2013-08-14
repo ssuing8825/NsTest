@@ -1,0 +1,27 @@
+﻿<IAddressBillingMailingEventSet xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+                                xmlns:xsd="http://www.w3.org/2001/XMLSchema" 
+                                xmlns="http://tempuri.net/Model.Events"
+                                xmlns:baseType="Model.Events.IBaseMailingAddressEvent" 
+                                xmlns:baseType1="Model.Events.IBaseEvent">
+  <Current>
+    <AddressId>123</AddressId>
+    <AddressLine1>asdfasdfa</AddressLine1>
+    <CassCode>sadfdfs</CassCode>
+  </Current>
+  <Previous>
+    <AddressId>123</AddressId>
+    <AddressLine1>asdfasdfa</AddressLine1>
+    <CassCode>sadfdfs</CassCode>
+  </Previous>
+  <CallingSystem>This is the calling system</CallingSystem>
+  <Notices>
+    <INotice>
+      <Id>123</Id>
+      <Description>asdfasdfa</Description>
+      <Severity>sadfdfs</Severity>
+    </INotice>
+  </Notices>
+  <PortfolioActivityDate>null</PortfolioActivityDate>
+  <EffectiveDate>null</EffectiveDate>
+  <ExpirationDate>null</ExpirationDate>
+</IAddressBillingMailingEventSet>

@@ -1,0 +1,26 @@
+﻿<?xml version="1.0" ?>
+<IAddressBillingMailingSetEvent xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                                xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+                                xmlns="http://tempuri.net/CustomerAccount.Messages.CustomerEvents"
+                                xmlns:baseType="CustomerAccount.Messages.CustomerEvents.IBaseMailingAddressEvent"
+                                xmlns:baseType1="CustomerAccount.Messages.IBaseEvent">
+  <Current>
+  </Current>
+  <Previous>
+  </Previous>
+  <CustomerId>sample string 1</CustomerId>
+  <Id>sample string 2</Id>
+  <CallingSystem>sample string 6</CallingSystem>
+  <ModifyBy>sample string 7</ModifyBy>
+  <ModifySource>sample string 8</ModifySource>
+  <Notices>
+    <INotice>
+      <Id>Need-a-real-id</Id>
+      <Description>Can&apos;t find newly created address (sample string 2) to populate event</Description>
+      <Severity>E</Severity>
+    </INotice>
+  </Notices>
+  <PortfolioActivityDate>null</PortfolioActivityDate>
+  <EffectiveDate>null</EffectiveDate>
+  <ExpirationDate>null</ExpirationDate>
+</IAddressBillingMailingSetEvent>

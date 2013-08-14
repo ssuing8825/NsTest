@@ -8,9 +8,9 @@ using System.Threading.Tasks;
 
 namespace Subscriber2
 {
-    class CustomerAddedEventHandler : IHandleMessages<ICustomerAddedEvent>
+    class CustomerAddedEventHandler : IHandleMessages<ICustomerAddedEventBase>
     {
-        public void Handle(ICustomerAddedEvent message)
+        public void Handle(ICustomerAddedEventBase message)
         {
             Console.WriteLine("Handling Customer message second subscriber{0}", message.Customer.name);
         }
