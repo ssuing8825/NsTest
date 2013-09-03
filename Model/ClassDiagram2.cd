@@ -74,7 +74,7 @@
     </TypeIdentifier>
   </Interface>
   <Interface Name="Model.Events.IAddressProperties" Collapsed="true">
-    <Position X="13" Y="4.25" Width="1.75" />
+    <Position X="11.25" Y="4.75" Width="1.75" />
     <TypeIdentifier>
       <HashCode>QCAAABAAIAAIAAAICgAAAAAACAAAAAABAAAAACAQAAA=</HashCode>
       <FileName>Events\All_Events.cs</FileName>

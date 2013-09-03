@@ -13,42 +13,19 @@ namespace Publisher
     {
         static void Main(string[] args)
         {
-            var ncustomer = new Customer { Id = 2, name = "Steve" };
             IBus bus = CreateBusCore();
 
-            INotice[] list = new INotice[1];
-            //INotice oneNotice = NServiceBus.MessageInterfaces.MessageMapper.Reflection.MessageMapper().CreateInstance<INotice>();
-            INotice one = bus.CreateInstance<INotice>(oneNotice =>
+            for (int i = 0; i < 5000; i++)
             {
-                oneNotice.Id = "123";
-                oneNotice.Description = "Can't do something ";
-                oneNotice.Severity = "sadfdfs";
-            });
-
-            list[0] = one;
-
-
-            IAddressProperties address = bus.CreateInstance<IAddressProperties>(a =>
-            {
-                a.AddressId = "123";
-                a.AddressLine1 = "asdfasdfa";
-                a.CassCode = "sadfdfs";
-            });
-
-            list[0] = one;
-
-
-            
-            bus.Publish<IAddressBillingMailingEventSet>(customerCreatedEvent =>
+                 bus.Publish<IAddressBillingMailingEventSet>(customerCreatedEvent =>
                 {
-                    customerCreatedEvent.CallingSystem = "This is the calling system";
-                    customerCreatedEvent.Notices = list;
-                    customerCreatedEvent.Current =  null;
-                    customerCreatedEvent.Previous = null;
-
+                    customerCreatedEvent.CallingSystem =  i.ToString();
+                    System.Threading.Thread.Sleep(100);
                 });
 
-            Console.WriteLine("Message Published");
+            Console.WriteLine(i); 
+            }
+          
         }
         static IBus CreateBusCore()
         {
