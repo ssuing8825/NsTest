@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using RabbitMQ.Client.Exceptions;
 
 namespace Publisher
 {
@@ -15,18 +16,43 @@ namespace Publisher
         {
             IBus bus = CreateBusCore();
 
-            for (int i = 0; i < 5000; i++)
+            int i = 0;
+            while (i < 5000)
             {
-                 bus.Publish<IAddressBillingMailingEventSet>(customerCreatedEvent =>
+                if (PublishAddressBillingMailingEventSet(bus, i))
                 {
-                    customerCreatedEvent.CallingSystem =  i.ToString();
+                    Console.WriteLine("Published event " + i);
+                    i++;
+                }
+                else
+                {
+                    Console.WriteLine("Publish for event '" + i + "' previously failed; retrying...");
+                }
+            }
+        }
+
+        static bool PublishAddressBillingMailingEventSet(IBus bus, int callingSystemId)
+        {
+            try
+            {
+                bus.Publish<IAddressBillingMailingEventSet>(customerCreatedEvent =>
+                {
+                    customerCreatedEvent.CallingSystem = callingSystemId.ToString();
                     System.Threading.Thread.Sleep(100);
                 });
-
-            Console.WriteLine(i); 
+                return true;
             }
-          
+            catch (OperationInterruptedException ex)
+            {
+                // todo: log that a RabbitMQ cluster node is down
+
+                // wait for cluster to failover to mirrored node
+                Console.WriteLine("RabbitMQ node is down; waiting for failover node...");
+                System.Threading.Thread.Sleep(5000);
+                return false;
+            }
         }
+
         static IBus CreateBusCore()
         {
             return Configure.With()
